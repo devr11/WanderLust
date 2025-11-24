@@ -8,16 +8,16 @@ const listingSchema = new Schema({
   },
   description: String,
   image: {
-  filename: {
-    type: String,
-    default: "listingimage"
+    filename: {
+      type: String,
+      default: "listingimage",
+    },
+    url: {
+      type: String,
+      default:
+        "https://thumbs.dreamstime.com/b/wildflowers-blooming-sunset-nature-scenery-wildflowers-blooming-sunset-nature-scenery-388164189.jpg",
+    },
   },
-  url: {
-    type: String,
-    default:
-      "https://thumbs.dreamstime.com/b/wildflowers-blooming-sunset-nature-scenery-wildflowers-blooming-sunset-nature-scenery-388164189.jpg",
-  }
-},
   price: Number,
   location: String,
   country: String,
