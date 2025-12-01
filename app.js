@@ -14,7 +14,7 @@ main()
   .catch((err) => console.log(err));
 
 app.get("/", (req, res) => {
-  res.send("Working");
+  res.send("Working")
 });
 
 app.get("/listings", async (req, res) => {
