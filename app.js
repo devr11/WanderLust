@@ -3,7 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 const Listing = require("./models/listing");
 
-app.set("view engine",)
+app.set("view engine", )
 
 async function main() {
   await mongoose.connect("mongodb://127.0.0.1:27017/wanderlust");
