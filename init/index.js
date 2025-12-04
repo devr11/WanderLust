@@ -16,4 +16,4 @@ const initDB = async () => {
   console.log("data was initialized");
 };
 
-initDB()
+initDB();

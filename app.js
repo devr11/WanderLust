@@ -3,7 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 const Listing = require("./models/listing");
 
-app.set("view engine", )
+app.set("view engine");
 
 async function main() {
   await mongoose.connect("mongodb://127.0.0.1:27017/wanderlust");
@@ -14,12 +14,11 @@ main()
   .catch((err) => console.log(err));
 
 app.get("/", (req, res) => {
-  res.send("Working")
+  res.send("Working");
 });
-
 app.get("/listings", async (req, res) => {
   const allListings = await Listing.find();
-  res.render("index", { allListings })
+  res.render("index", { allListings });
 });
 
 // app.get("/testListing", async (req, res) => {
@@ -37,6 +36,5 @@ app.get("/listings", async (req, res) => {
 //     .catch((err) => console.log(err));
 //     res.send("Successfully saved")
 // });
-
 
 app.listen(3000);
