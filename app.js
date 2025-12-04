@@ -6,6 +6,7 @@ const path = require('path');
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"))
+app.use(express.urlencoded({extended: true}))
 
 async function main() {
   await mongoose.connect("mongodb://127.0.0.1:27017/wanderlust");
@@ -18,10 +19,28 @@ main()
 app.get("/", (req, res) => {
   res.send("Working");
 });
+
+//Index Route
 app.get("/listings", async (req, res) => {
   const allListings = await Listing.find();
-  res.render("index", { allListings });
+  res.render("listings/index", { allListings });
 });
+
+//New Route
+app.get("/listings/new", (req, res)=>{
+  res.render("listings/new")
+})
+
+//Show Route
+app.get("/listings/:id", async (req, res)=>{
+  const {id} = req.params;
+  const listing = await Listing.findById(id)
+  res.render("listings/show", {listing})
+})
+
+//Create Route
+
+
 
 // app.get("/testListing", async (req, res) => {
 //   let sampleListing = new Listing({
