@@ -46,7 +46,9 @@ app.post("/listings", async (req, res)=>{
   res.redirect("/listings")
 })
 
-
+app.get("/listings/:id/edit", (req, res)=> {
+  res.render("listings/edit")
+})
 
 // app.get("/testListing", async (req, res) => {
 //   let sampleListing = new Listing({
