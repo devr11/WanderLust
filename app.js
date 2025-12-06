@@ -3,10 +3,12 @@ const app = express();
 const mongoose = require("mongoose");
 const Listing = require("./models/listing");
 const path = require('path');
+const method = require("method-override")
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"))
 app.use(express.urlencoded({extended: true}))
+app.use(method("_method"))
 
 async function main() {
   await mongoose.connect("mongodb://127.0.0.1:27017/wanderlust");
@@ -46,10 +48,16 @@ app.post("/listings", async (req, res)=>{
   res.redirect("/listings")
 })
 
+//Edit Route
 app.get("/listings/:id/edit", async (req, res)=> {
   const {id} = req.params;
   const listing = await Listing.findById(id)
   res.render("listings/edit", {listing})
+})
+
+//Update Route
+app.get("/listings/:id", async (req, res)=>{
+  const {id} = req.params;
 })
 
 // app.get("/testListing", async (req, res) => {
