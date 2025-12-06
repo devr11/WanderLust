@@ -9,6 +9,7 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded({ extended: true }));
 app.use(method("_method"));
+app.engine("ejs", ejsMate)
 
 async function main() {
   await mongoose.connect("mongodb://127.0.0.1:27017/wanderlust");
@@ -66,7 +67,7 @@ app.put("/listings/:id", async (req, res) => {
 app.delete("/listings/:id", async (req, res)=>{
   const { id } = req.params;
   let deletedListing = await Listing.findByIdAndDelete(id)
-  console.log(deletedListing)
+  res.redirect("/listings")
 })
 
 // app.get("/testListing", async (req, res) => {
