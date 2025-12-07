@@ -4,15 +4,14 @@ const mongoose = require("mongoose");
 const Listing = require("./models/listing");
 const path = require("path");
 const method = require("method-override");
-const ejsMate = require("ejs-mate")
-
+const ejsMate = require("ejs-mate");
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded({ extended: true }));
 app.use(method("_method"));
 app.engine("ejs", ejsMate);
-app.use(express.static(path.join(__dirname, "/public")))
+app.use(express.static(path.join(__dirname, "/public")));
 
 async function main() {
   await mongoose.connect("mongodb://127.0.0.1:27017/wanderlust");
@@ -67,11 +66,11 @@ app.put("/listings/:id", async (req, res) => {
 });
 
 //Delete Route
-app.delete("/listings/:id", async (req, res)=>{
+app.delete("/listings/:id", async (req, res) => {
   const { id } = req.params;
-  let deletedListing = await Listing.findByIdAndDelete(id)
-  res.redirect("/listings")
-})
+  let deletedListing = await Listing.findByIdAndDelete(id);
+  res.redirect("/listings");
+});
 
 // app.get("/testListing", async (req, res) => {
 //   let sampleListing = new Listing({
