@@ -17,3 +17,25 @@
   text-decoration: none;
   color: black;
 }
+
+.f-info-links a:hover{
+  text-decoration: underline;
+}
+
+.f-info-links, .f-info-socials{
+    width: 100%;
+}
+
+.f-info-socials i{
+    font-size: 1.2rem;
+    margin-right: 1rem;
+}
+
+.f-info{
+    text-align: center;
+    height: 8rem;
+    background-color:#ebebeb;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
