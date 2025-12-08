@@ -335,6 +335,7 @@ const sampleListings = [
     location: "Aspen",
     country: "United States",
   },
+  
   {
     title: "Secluded Beach House in Costa Rica",
     description:
